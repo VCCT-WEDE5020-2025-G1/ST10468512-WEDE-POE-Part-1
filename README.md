@@ -228,6 +228,7 @@ Desktop
 
 
 Moblie 
+
 <img width="213" height="548" alt="Screenshot 2025-09-29 214649" src="https://github.com/user-attachments/assets/fa174814-b293-4ec6-9fd0-e0b5bc4234f3" />
 
 <img width="215" height="463" alt="Screenshot 2025-09-29 215011" src="https://github.com/user-attachments/assets/0498e6ce-7df7-4eca-b464-1e2ccde024cd" />
@@ -238,6 +239,7 @@ Moblie
 
 
 Tablet
+
 <img width="385" height="545" alt="Screenshot 2025-09-29 220849" src="https://github.com/user-attachments/assets/7bf95910-0d15-4b29-b415-ef7bbf0a7bb1" />
 
 <img width="382" height="543" alt="Screenshot 2025-09-29 220942" src="https://github.com/user-attachments/assets/595082f3-eafb-4a22-a5c6-39ada42aa2cd" />
