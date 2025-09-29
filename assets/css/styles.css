@@ -1,0 +1,822 @@
+/**
+ * Friendly Fix Plumbing - Enhanced Design System
+ * 
+ * This stylesheet implements a modern, accessible design system for the plumbing website.
+ * It uses CSS custom properties (variables) for consistent theming and easy maintenance.
+ * 
+ * Key features:
+ * - Mobile-first responsive design
+ * - Accessibility-focused color contrast
+ * - Performance-optimized animations
+ * - Modern CSS Grid and Flexbox layouts
+ */
+
+/* ==========================================================================
+   CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+   ========================================================================== */
+
+:root {
+  /* Primary Brand Colors
+     Professional blue palette for plumbing industry trust and reliability */
+  --brand: #2563eb;           /* Main brand color - professional blue */
+  --brand-light: #3b82f6;     /* Lighter variant for hover states */
+  --brand-dark: #1d4ed8;      /* Darker variant for active states */
+  --brand-accent: #60a5fa;    /* Accent color for highlights */
+  
+  /* Neutral Color Palette
+     Grayscale colors for text, backgrounds, and UI elements */
+  --ink: #0f172a;             /* Primary text color - dark slate */
+  --ink-light: #334155;       /* Secondary text color - lighter slate */
+  --muted: #64748b;           /* Muted text color - medium gray */
+  --muted-light: #94a3b8;     /* Light muted text - light gray */
+  --bg: #ffffff;              /* Primary background - white */
+  --bg-alt: #f8fafc;          /* Alternative background - very light gray */
+  --surface: #f1f5f9;         /* Surface color for cards and panels */
+  --surface-hover: #e2e8f0;   /* Hover state for surfaces */
+  
+  /* Status Colors
+     Semantic colors for different states and feedback */
+  --success: #10b981;         /* Success messages and positive actions */
+  --warning: #f59e0b;         /* Warning messages and caution states */
+  --error: #ef4444;           /* Error messages and destructive actions */
+  
+  /* Spacing Scale
+     Consistent spacing system based on 0.25rem (4px) increments */
+  --space-xs: 0.25rem;        /* 4px - minimal spacing */
+  --space-sm: 0.5rem;         /* 8px - small spacing */
+  --space-md: 1rem;           /* 16px - medium spacing (base unit) */
+  --space-lg: 1.5rem;         /* 24px - large spacing */
+  --space-xl: 2rem;           /* 32px - extra large spacing */
+  --space-2xl: 3rem;          /* 48px - double extra large spacing */
+  --space-3xl: 4rem;          /* 64px - triple extra large spacing */
+  
+  /* Typography Scale
+     Responsive font sizes using rem units for accessibility */
+  --font-size-xs: 0.75rem;    /* 12px - small text */
+  --font-size-sm: 0.875rem;   /* 14px - small body text */
+  --font-size-base: 1rem;     /* 16px - base body text */
+  --font-size-lg: 1.125rem;   /* 18px - large body text */
+  --font-size-xl: 1.25rem;    /* 20px - small headings */
+  --font-size-2xl: 1.5rem;    /* 24px - medium headings */
+  --font-size-3xl: 1.875rem;  /* 30px - large headings */
+  --font-size-4xl: 2.25rem;   /* 36px - extra large headings */
+  
+  /* Border Radius Scale
+     Consistent rounded corners for modern UI elements */
+  --radius-sm: 0.375rem;      /* 6px - small radius */
+  --radius-md: 0.5rem;        /* 8px - medium radius */
+  --radius-lg: 0.75rem;       /* 12px - large radius */
+  --radius-xl: 1rem;          /* 16px - extra large radius */
+  
+  /* Shadow System
+     Layered shadows for depth and elevation */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);                    /* Subtle shadow */
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);  /* Medium shadow */
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* Large shadow */
+  
+  /* Transition Timing
+     Consistent animation durations for smooth interactions */
+  --transition-fast: 150ms ease-in-out;    /* Quick transitions */
+  --transition-base: 250ms ease-in-out;    /* Standard transitions */
+  --transition-slow: 350ms ease-in-out;    /* Slow transitions */
+}
+
+/* ==========================================================================
+   BASE STYLES & RESET
+   ========================================================================== */
+
+/* Universal box-sizing for consistent element sizing */
+* { 
+  box-sizing: border-box; 
+}
+
+/* Reset default margins and padding */
+html, body { 
+  margin: 0; 
+  padding: 0; 
+}
+
+/* Smooth scrolling for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base typography and styling */
+body { 
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; 
+  color: var(--ink); 
+  background: var(--bg); 
+  line-height: 1.6;
+  font-size: var(--font-size-base);
+  -webkit-font-smoothing: antialiased;    /* Better font rendering on WebKit */
+  -moz-osx-font-smoothing: grayscale;     /* Better font rendering on Firefox */
+  text-rendering: optimizeLegibility;     /* Optimize text rendering */
+}
+
+/* Media elements default responsiveness */
+img, picture, video, canvas { 
+  display: block; 
+  max-width: 100%; 
+}
+
+/* Utility: responsive image with rounded corners on cards */
+.responsive-img { 
+  width: 100%; 
+  height: auto; 
+}
+
+/* ==========================================================================
+   PERFORMANCE OPTIMIZATIONS
+   ========================================================================== */
+
+/* Optimize animations by hinting which properties will change */
+* {
+  will-change: auto;
+}
+
+/* Specific elements that will be animated */
+.card, .btn, .site-nav a {
+  will-change: transform;
+}
+
+/* Accessibility: Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Disable parallax effect for users who prefer reduced motion */
+  .hero {
+    background-attachment: scroll;
+  }
+}
+
+/* ==========================================================================
+   LAYOUT CONTAINER
+   ========================================================================== */
+
+/* Responsive container with max-width and padding */
+.container { 
+  width: min(1200px, 95%);    /* Max 1200px, 95% of viewport on smaller screens */
+  margin: 0 auto;             /* Center the container */
+  padding: 0 var(--space-md); /* Horizontal padding */
+}
+
+/* ==========================================================================
+   HEADER & NAVIGATION
+   ========================================================================== */
+
+/* Sticky header with backdrop blur effect */
+.site-header { 
+  background: var(--bg); 
+  border-bottom: 1px solid var(--surface-hover); 
+  position: sticky; 
+  top: 0; 
+  z-index: 100;                    /* High z-index to stay above content */
+  backdrop-filter: blur(10px);     /* Modern blur effect for glass morphism */
+  box-shadow: var(--shadow-sm);    /* Subtle shadow for depth */
+}
+
+/* Header inner container with flexbox layout */
+.header-inner { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  padding: var(--space-md) 0;
+  min-height: 4rem;                /* Consistent header height */
+}
+
+/* Logo styling with hover effect */
+.logo { 
+  text-decoration: none; 
+  font-weight: 700; 
+  color: var(--ink); 
+  font-size: var(--font-size-xl);
+  transition: color var(--transition-fast);
+}
+
+.logo:hover {
+  color: var(--brand);             /* Brand color on hover */
+}
+
+/* Mobile navigation toggle button */
+.nav-toggle { 
+  display: none;                   /* Hidden on desktop */
+  border: 0; 
+  background: none; 
+  font-size: 1.5rem; 
+  cursor: pointer;
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-fast);
+}
+
+.nav-toggle:hover {
+  background-color: var(--surface); /* Subtle hover background */
+}
+
+/* Navigation menu list */
+.site-nav ul { 
+  list-style: none; 
+  display: flex; 
+  gap: var(--space-lg); 
+  margin: 0; 
+  padding: 0; 
+}
+
+/* Navigation links with hover and active states */
+.site-nav a { 
+  text-decoration: none; 
+  color: var(--ink); 
+  padding: var(--space-sm) var(--space-md); 
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.site-nav a:hover { 
+  background-color: var(--surface);
+  color: var(--brand);
+}
+
+/* Active page indicator */
+.site-nav a.active { 
+  color: var(--brand);
+  background-color: var(--surface);
+}
+
+/* Active page underline indicator */
+.site-nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background-color: var(--brand);
+  border-radius: 1px;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+
+/* Hero section with gradient overlay and background image */
+.hero { 
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.8), rgba(29, 78, 216, 0.9)), url('../img/home-hero.jpg');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed;    /* Parallax effect */
+  padding: var(--space-3xl) 0; 
+  text-align: center; 
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Additional gradient overlay for better text contrast */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(29, 78, 216, 0.2));
+  z-index: 1;
+}
+
+/* Hero content container with proper z-index */
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Hero heading with responsive font size and text shadow */
+.hero h1 { 
+  margin-top: 0; 
+  font-size: clamp(2rem, 5vw, 3.5rem);  /* Responsive font size */
+  color: #ffffff; 
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--space-lg);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);  /* Text shadow for readability */
+}
+
+/* Hero description text */
+.hero p {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-xl);
+  opacity: 0.95;                   /* Slightly transparent for visual hierarchy */
+  max-width: 600px;                /* Constrain width for readability */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Hero action buttons container */
+.hero-actions {
+  display: flex;
+  gap: var(--space-lg);
+  justify-content: center;
+  flex-wrap: wrap;                 /* Wrap buttons on smaller screens */
+  margin-top: var(--space-xl);
+}
+
+/* ==========================================================================
+   BUTTON COMPONENTS
+   ========================================================================== */
+
+/* Primary button with hover effects and shine animation */
+.btn { 
+  display: inline-block; 
+  background: var(--brand); 
+  color: white; 
+  padding: var(--space-md) var(--space-xl); 
+  border-radius: var(--radius-lg); 
+  text-decoration: none; 
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  border: 2px solid var(--brand);
+  transition: all var(--transition-base);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shine effect overlay for modern button interaction */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left var(--transition-slow);
+}
+
+/* Button hover state with elevation and color change */
+.btn:hover {
+  background: var(--brand-dark);
+  border-color: var(--brand-dark);
+  transform: translateY(-2px);    /* Lift effect */
+  box-shadow: var(--shadow-lg);   /* Enhanced shadow */
+}
+
+/* Animate shine effect on hover */
+.btn:hover::before {
+  left: 100%;
+}
+
+/* Button active state - return to normal position */
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Secondary button variant - outlined style */
+.btn-secondary {
+  background: transparent;
+  color: var(--brand);
+  border-color: var(--brand);
+}
+
+/* Secondary button hover - fill with brand color */
+.btn-secondary:hover {
+  background: var(--brand);
+  color: white;
+}
+
+/* ==========================================================================
+   HIGHLIGHTS SECTION & CARDS
+   ========================================================================== */
+
+/* Highlights section with alternative background */
+.highlights { 
+  padding: var(--space-3xl) 0; 
+  background: var(--bg-alt);        /* Subtle background variation */
+}
+
+/* Section heading with centered alignment */
+.highlights h2 {
+  text-align: center;
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  margin-bottom: var(--space-2xl);
+  color: var(--ink);
+}
+
+/* Responsive card grid layout */
+.cards { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  /* Auto-fit with minimum width */
+  gap: var(--space-xl); 
+  margin-top: var(--space-xl);
+}
+
+/* Card component with hover effects */
+.card { 
+  background: var(--bg); 
+  padding: var(--space-xl); 
+  border-radius: var(--radius-xl); 
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--surface-hover);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top border accent that appears on hover */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--brand), var(--brand-light));
+  transform: scaleX(0);             /* Initially hidden */
+  transition: transform var(--transition-base);
+}
+
+/* Card hover state with elevation and border color change */
+.card:hover {
+  transform: translateY(-4px);      /* Lift effect */
+  box-shadow: var(--shadow-lg);     /* Enhanced shadow */
+  border-color: var(--brand-accent); /* Brand accent border */
+}
+
+/* Show top border accent on hover */
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Card heading styling */
+.card h3 {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+  color: var(--ink);
+}
+
+/* Card description text */
+.card p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Optional media block for cards */
+.card-media {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-md);
+  aspect-ratio: 16 / 9;
+  background: var(--surface);
+}
+
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==========================================================================
+   PAGE LAYOUT & TYPOGRAPHY
+   ========================================================================== */
+
+/* Main page container with minimum height */
+.page { 
+  padding: var(--space-3xl) 0; 
+  min-height: 60vh;              /* Ensure adequate content height */
+}
+
+/* Page heading hierarchy with consistent spacing */
+.page h1 { 
+  font-size: var(--font-size-4xl); 
+  font-weight: 700; 
+  margin-bottom: var(--space-lg); 
+  color: var(--ink);
+}
+
+.page h2 { 
+  font-size: var(--font-size-3xl); 
+  font-weight: 600; 
+  margin-top: var(--space-2xl); 
+  margin-bottom: var(--space-lg); 
+  color: var(--ink);
+}
+
+.page h3 { 
+  font-size: var(--font-size-2xl); 
+  font-weight: 600; 
+  margin-top: var(--space-xl); 
+  margin-bottom: var(--space-md); 
+  color: var(--ink);
+}
+
+.page h4 { 
+  font-size: var(--font-size-xl); 
+  font-weight: 600; 
+  margin-top: var(--space-lg); 
+  margin-bottom: var(--space-sm); 
+  color: var(--ink);
+}
+
+/* Page text with optimal line length for readability */
+.page p { 
+  margin: 0 0 var(--space-lg); 
+  max-width: 70ch;               /* Optimal reading line length */
+  color: var(--ink-light);
+  line-height: 1.7;              /* Improved readability */
+}
+
+/* List styling with proper indentation */
+.page ul, .page ol {
+  margin: var(--space-lg) 0;
+  padding-left: var(--space-xl);
+}
+
+.page li {
+  margin-bottom: var(--space-sm);
+  color: var(--ink-light);
+}
+
+/* ==========================================================================
+   CONTACT FORM
+   ========================================================================== */
+
+/* Two-column contact layout */
+.contact-grid { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: var(--space-2xl); 
+  margin-top: var(--space-xl);
+}
+
+/* Contact form container with card styling */
+.contact-form { 
+  background: var(--bg); 
+  padding: var(--space-xl); 
+  border-radius: var(--radius-xl); 
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--surface-hover);
+}
+
+/* Form label styling with proper spacing */
+.contact-form label { 
+  display: grid; 
+  gap: var(--space-sm); 
+  margin-bottom: var(--space-lg); 
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* Form input and textarea styling */
+.contact-form input, 
+.contact-form textarea { 
+  padding: var(--space-md); 
+  border: 2px solid var(--surface-hover); 
+  border-radius: var(--radius-md); 
+  font: inherit; 
+  transition: all var(--transition-fast);
+  background: var(--bg);
+  color: var(--ink);
+}
+
+/* Focus state with brand color and subtle shadow */
+.contact-form input:focus, 
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);  /* Focus ring */
+}
+
+/* Textarea specific styling */
+.contact-form textarea {
+  resize: vertical;              /* Allow vertical resize only */
+  min-height: 120px;            /* Minimum height for usability */
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+/* Footer with subtle background and top border */
+.site-footer { 
+  border-top: 1px solid var(--surface-hover); 
+  margin-top: var(--space-3xl); 
+  background: var(--bg-alt);        /* Subtle background variation */
+}
+
+/* Footer content layout */
+.footer-inner { 
+  padding: var(--space-xl) 0; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  flex-wrap: wrap; 
+  gap: var(--space-md); 
+}
+
+/* Footer text styling */
+.footer-inner p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Footer links with hover effect */
+.footer-inner a {
+  color: var(--brand);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-inner a:hover {
+  color: var(--brand-dark);
+}
+
+/* ==========================================================================
+   LOADING STATES & ANIMATIONS
+   ========================================================================== */
+
+/* Loading state for interactive elements */
+.loading {
+  opacity: 0.6;                   /* Reduce opacity to indicate loading */
+  pointer-events: none;           /* Disable interactions during loading */
+  position: relative;
+}
+
+/* Spinning loader animation */
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid var(--brand);
+  border-top: 2px solid transparent;  /* Transparent top for spinning effect */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Spinning animation keyframes */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Fade in up animation for scroll-triggered elements */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);  /* Start 30px below final position */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);     /* End at normal position */
+  }
+}
+
+/* Utility class for fade in up animation */
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* Tablet and smaller desktop screens */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 var(--space-lg);    /* Increase padding for better spacing */
+  }
+  
+  .hero {
+    background-attachment: scroll; /* Disable parallax on tablets for performance */
+  }
+}
+
+/* Mobile and small tablet screens */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--space-md);    /* Standard mobile padding */
+  }
+  
+  /* Hero section adjustments for mobile */
+  .hero {
+    padding: var(--space-2xl) 0;   /* Reduce hero padding on mobile */
+  }
+  
+  .hero h1 {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);  /* Smaller hero heading */
+  }
+  
+  /* Stack hero buttons vertically on mobile */
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+  }
+  
+  /* Single column card layout on mobile */
+  .cards { 
+    grid-template-columns: 1fr; 
+    gap: var(--space-lg);
+  }
+  
+  /* Single column contact layout on mobile */
+  .contact-grid { 
+    grid-template-columns: 1fr; 
+    gap: var(--space-xl);
+  }
+  
+  /* Show mobile navigation toggle */
+  .nav-toggle { 
+    display: inline-block; 
+  }
+  
+  /* Mobile navigation menu */
+  .site-nav { 
+    display: none; 
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-top: 1px solid var(--surface-hover);
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* Show mobile nav when open */
+  .site-nav.open { 
+    display: block; 
+  }
+  
+  /* Vertical mobile navigation */
+  .site-nav ul { 
+    flex-direction: column; 
+    padding: var(--space-md) 0; 
+    gap: 0;
+  }
+  
+  .site-nav a {
+    display: block;
+    padding: var(--space-md) var(--space-lg);
+    border-radius: 0;
+  }
+  
+  /* Hide active indicator on mobile */
+  .site-nav a.active::after {
+    display: none;
+  }
+  
+  /* Stack footer content vertically on mobile */
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-sm);
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+  /* Further reduce hero padding on small screens */
+  .hero {
+    padding: var(--space-xl) 0;
+  }
+  
+  /* Smaller hero heading for small screens */
+  .hero h1 {
+    font-size: clamp(1.5rem, 8vw, 2rem);
+  }
+  
+  /* Smaller button padding on mobile */
+  .btn {
+    padding: var(--space-sm) var(--space-lg);
+    font-size: var(--font-size-sm);
+  }
+  
+  /* Reduce card padding on small screens */
+  .card {
+    padding: var(--space-lg);
+  }
+  
+  /* Reduce form padding on small screens */
+  .contact-form {
+    padding: var(--space-lg);
+  }
+}
+
+

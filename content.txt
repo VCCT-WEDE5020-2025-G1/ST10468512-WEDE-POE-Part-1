@@ -1,0 +1,55 @@
+Friendly Fix Plumbing — Site Copy
+=================================
+
+Global
+------
+Header brand: "Friendly Fix Plumbing"
+Nav: Home, Services, About, Contact
+Footer: "© {current year} Friendly Fix Plumbing" | Phone: (123) 456-7890 | Email: hello@friendlyfix.com
+
+Home (index.html)
+-----------------
+Headline: "Your friendly neighborhood plumbers"
+Scubhead: "On time, clean work, fair prices. 24/7 emergency support."
+Primary CTA: "Request a Quote"
+Section title: "Why choose Friendly Fix?"
+Highlights:
+- Licensed & Insured — Certified professionals for safe and compliant work.
+- Transparent Pricing — Clear quotes with no surprise fees.
+- Fast Response — Same-day appointments and 24/7 emergencies.
+
+Services (services.html)
+-----------------------
+Page title: "Our Services"
+Cards:
+- Leak Detection & Repair — Pinpoint leaks and fix them fast to protect your home.
+- Drain Cleaning — Clogged sink, shower, or main line — we clear it safely.
+- Water Heaters — Installation, maintenance, and emergency replacements.
+- Fixture Installation — Faucets, toilets, showers, garbage disposals, and more.
+
+About (about.html)
+------------------
+Page title: "About Friendly Fix"
+Intro: "We are a small, customer-first plumbing team serving our local community. Our mission is simple: do great work and treat people fairly."
+History:
+"Friendly Fix Plumbing began as a one-van operation in a single neighborhood. After helping a few neighbors with late-night leaks and weekend emergencies, word spread that our team showed up on time, explained the work clearly, and cleaned up before leaving. Those early jobs shaped our promise to be friendly, reliable, and fair on every call.
+
+As referrals grew, we added licensed technicians, invested in better diagnostic tools, and expanded our scheduling hours to include same-day service. Today, Friendly Fix serves homes and small businesses across the area while staying true to what got us here: honest pricing, quality workmanship, and respect for your time and home."
+Values:
+- Respect for your time and home
+- Clear communication and honest pricing
+- Quality craftsmanship with reliable parts
+Service areas: "Downtown, Riverside, North Hills, and surrounding neighborhoods."
+
+Contact (contact.html)
+----------------------
+Page title: "Contact Us"
+Intro: "Call us, email us, or send a quick message below. We usually respond within the hour during business times."
+Quick details:
+- Phone: (123) 456-7890
+- Email: hello@friendlyfix.com
+- Hours: Mon–Sat 8am–6pm · 24/7 emergencies
+Form labels: Name, Email, Phone, Message
+Form CTA: "Send Message"
+
+

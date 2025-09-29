@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Friendly Fix Plumbing</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html">Friendly Fix Plumbing</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        <nav class="site-nav" aria-label="Primary">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a class="active" href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container page">
+      <h1>Contact Us</h1>
+      <p>Call us, email us, or send a quick message below. We usually respond within the hour during business times.</p>
+      <div class="contact-grid">
+        <div>
+          <h2>Quick details</h2>
+          <p><strong>Phone:</strong> <a href="tel:+11234567890">(123) 456-7890</a></p>
+          <p><strong>Email:</strong> <a href="mailto:hello@friendlyfix.com">hello@friendlyfix.com</a></p>
+          <p><strong>Hours:</strong> Mon–Sat 8am–6pm · 24/7 emergencies</p>
+        </div>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thanks! We\'ll be in touch shortly.'); this.reset();">
+          <label>
+            Name
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            Phone
+            <input type="tel" name="phone" />
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> Friendly Fix Plumbing</p>
+        <p><a href="tel:+11234567890">(123) 456-7890</a> · <a href="mailto:hello@friendlyfix.com">hello@friendlyfix.com</a></p>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+  </html>
+
+

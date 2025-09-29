@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- ==========================================================================
+         DOCUMENT METADATA
+         ========================================================================== -->
+    
+    <!-- Basic document information -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Friendly Fix Plumbing | Reliable Local Plumbers</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Friendly Fix Plumbing offers fast, reliable residential and commercial plumbing services. Licensed, insured, and available 24/7 for emergencies." />
+    <meta name="keywords" content="plumbing, plumber, emergency plumbing, drain cleaning, water heater, leak repair, local plumber" />
+    <meta name="author" content="Friendly Fix Plumbing" />
+    
+    <!-- ==========================================================================
+         SOCIAL MEDIA META TAGS
+         ========================================================================== -->
+    
+    <!-- Open Graph / Facebook sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://friendlyfixplumbing.com/" />
+    <meta property="og:title" content="Friendly Fix Plumbing | Reliable Local Plumbers" />
+    <meta property="og:description" content="Fast, reliable plumbing services. Licensed, insured, and available 24/7 for emergencies." />
+    <meta property="og:image" content="https://friendlyfixplumbing.com/assets/img/home-hero.jpg" />
+
+    <!-- Twitter Card sharing -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://friendlyfixplumbing.com/" />
+    <meta property="twitter:title" content="Friendly Fix Plumbing | Reliable Local Plumbers" />
+    <meta property="twitter:description" content="Fast, reliable plumbing services. Licensed, insured, and available 24/7 for emergencies." />
+    <meta property="twitter:image" content="https://friendlyfixplumbing.com/assets/img/home-hero.jpg" />
+
+    <!-- ==========================================================================
+         PERFORMANCE OPTIMIZATIONS
+         ========================================================================== -->
+    
+    <!-- Preconnect to external domains for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- DNS prefetch for additional performance -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    
+    <!-- ==========================================================================
+         STYLESHEETS & FONTS
+         ========================================================================== -->
+    
+    <!-- Google Fonts - Inter font family for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <!-- ==========================================================================
+         SITE HEADER & NAVIGATION
+         ========================================================================== -->
+    
+    <header class="site-header">
+      <div class="container header-inner">
+        <!-- Company logo/brand -->
+        <a class="logo" href="index.html">Friendly Fix Plumbing</a>
+        
+        <!-- Mobile navigation toggle button -->
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        
+        <!-- Main navigation menu -->
+        <nav class="site-nav" aria-label="Primary">
+          <ul>
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ==========================================================================
+         MAIN CONTENT
+         ========================================================================== -->
+    
+    <main>
+      <!-- Hero section with call-to-action -->
+      <section class="hero">
+        <div class="container">
+          <h1>Your friendly neighborhood plumbers</h1>
+          <p>On time, clean work, fair prices. 24/7 emergency support.</p>
+          
+          <!-- Primary action buttons -->
+          <div class="hero-actions">
+            <a class="btn" href="contact.html">Request a Quote</a>
+            <a class="btn btn-secondary" href="tel:+11234567890">Call Now: (123) 456-7890</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Highlights section showcasing key benefits -->
+      <section class="highlights container">
+        <h2>Why choose Friendly Fix?</h2>
+        <div class="cards">
+          <!-- Key benefit cards -->
+          <article class="card">
+            <h3>Licensed & Insured</h3>
+            <p>Certified professionals for safe and compliant work.</p>
+          </article>
+          <article class="card">
+            <h3>Transparent Pricing</h3>
+            <p>Clear quotes with no surprise fees.</p>
+          </article>
+          <article class="card">
+            <h3>Fast Response</h3>
+            <p>Same-day appointments and 24/7 emergencies.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==========================================================================
+         SITE FOOTER
+         ========================================================================== -->
+    
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <!-- Copyright information -->
+        <p>© <span id="year"></span> Friendly Fix Plumbing</p>
+        
+        <!-- Contact information -->
+        <p><a href="tel:+11234567890">(123) 456-7890</a> · <a href="mailto:hello@friendlyfix.com">hello@friendlyfix.com</a></p>
+      </div>
+    </footer>
+
+    <!-- ==========================================================================
+         ANALYTICS & PERFORMANCE MONITORING
+         ========================================================================== -->
+    
+    <script>
+      /**
+       * Basic performance monitoring and analytics
+       * Tracks page load times and Core Web Vitals
+       */
+      window.addEventListener('load', function() {
+        // Get navigation timing data
+        const perfData = performance.getEntriesByType('navigation')[0];
+        const loadTime = perfData.loadEventEnd - perfData.loadEventStart;
+        
+        // Log performance metrics (in production, send to analytics service)
+        console.log('Page load time:', loadTime + 'ms');
+        
+        // Track Core Web Vitals (placeholder for real analytics implementation)
+        if ('web-vital' in window) {
+          // This would be implemented with a real analytics service like Google Analytics
+          console.log('Core Web Vitals tracking initialized');
+        }
+      });
+    </script>
+    
+    <!-- ==========================================================================
+         MAIN JAVASCRIPT
+         ========================================================================== -->
+    
+    <!-- Main JavaScript file with all interactive functionality -->
+    <script src="assets/js/main.js"></script>
+  </body>
+  </html>
+
+
