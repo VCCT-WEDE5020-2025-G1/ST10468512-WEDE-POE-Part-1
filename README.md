@@ -206,7 +206,9 @@ Provided as-is for small business starter sites.
 https://github.com/VCCT-WEDE5020-2025-G1/ST10468512-WEDE-POE-Part-1
 
 ## References 
-https://www.w3schools.com/
+https://www.w3schools.com/css/default.asp
+
+https://www.w3schools.com/html/default.asp
 
 https://www.arlingtontxseptic.com/drain-cleaning/
 
@@ -215,6 +217,7 @@ https://wallpapers.com/plumbing-background?p=2
 https://www.icareplumbing.com.au/wp-content/uploads/2020/02/image-7-most-common-plumbing-problems-and-how-to-fix-them.jpg
 
 ##Screenshots 
+Desktop
 <img width="1346" height="603" alt="Screenshot 2025-09-29 211518" src="https://github.com/user-attachments/assets/62154220-8bfb-43cb-85d0-195160c37129" />
 
 <img width="1348" height="609" alt="Screenshot 2025-09-29 211541" src="https://github.com/user-attachments/assets/4298589e-6dd1-416c-ab5b-c94744756a2a" />
@@ -222,6 +225,39 @@ https://www.icareplumbing.com.au/wp-content/uploads/2020/02/image-7-most-common-
 <img width="1347" height="601" alt="Screenshot 2025-09-29 211555" src="https://github.com/user-attachments/assets/3f6ac052-30f0-4c67-9594-9d5266eea2c6" />
 
 <img width="1360" height="570" alt="Screenshot 2025-09-29 211608" src="https://github.com/user-attachments/assets/56e67c8d-59c4-44ab-b9c1-1a2b9610a84b" />
+
+
+Moblie 
+<img width="213" height="548" alt="Screenshot 2025-09-29 214649" src="https://github.com/user-attachments/assets/fa174814-b293-4ec6-9fd0-e0b5bc4234f3" />
+
+<img width="215" height="463" alt="Screenshot 2025-09-29 215011" src="https://github.com/user-attachments/assets/0498e6ce-7df7-4eca-b464-1e2ccde024cd" />
+
+<img width="211" height="463" alt="Screenshot 2025-09-29 215334" src="https://github.com/user-attachments/assets/a82347f3-5ff4-4b17-a35f-6f98a056e5c7" />
+
+<img width="213" height="466" alt="Screenshot 2025-09-29 215347" src="https://github.com/user-attachments/assets/b28955f2-b769-4536-9a13-e48b74e74dfe" />
+
+
+Tablet
+<img width="385" height="545" alt="Screenshot 2025-09-29 220849" src="https://github.com/user-attachments/assets/7bf95910-0d15-4b29-b415-ef7bbf0a7bb1" />
+
+<img width="382" height="543" alt="Screenshot 2025-09-29 220942" src="https://github.com/user-attachments/assets/595082f3-eafb-4a22-a5c6-39ada42aa2cd" />
+
+<img width="769" height="534" alt="Screenshot 2025-09-29 221711" src="https://github.com/user-attachments/assets/b66c94a0-d8c4-49b8-ac6e-35fd8a33f083" />
+
+<img width="766" height="529" alt="image" src="https://github.com/user-attachments/assets/ece5e4ba-a97b-4271-b7c0-1b39454d1f7c" />
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
