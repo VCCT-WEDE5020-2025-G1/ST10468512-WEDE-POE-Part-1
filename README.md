@@ -237,6 +237,9 @@ Moblie
 
 <img width="213" height="466" alt="Screenshot 2025-09-29 215347" src="https://github.com/user-attachments/assets/b28955f2-b769-4536-9a13-e48b74e74dfe" />
 
+<img width="216" height="462" alt="Screenshot 2025-09-29 222415" src="https://github.com/user-attachments/assets/2d846391-0ba4-4ace-a10a-0b4701f2a38f" />
+
+
 
 Tablet
 
