@@ -240,9 +240,9 @@ Moblie
 
 Tablet
 
-<img width="385" height="545" alt="Screenshot 2025-09-29 220849" src="https://github.com/user-attachments/assets/7bf95910-0d15-4b29-b415-ef7bbf0a7bb1" />
+<img width="679" height="513" alt="Screenshot 2025-09-29 222122" src="https://github.com/user-attachments/assets/efee44e0-223c-4b3c-8fda-b35b38e55fa8" />
 
-<img width="382" height="543" alt="Screenshot 2025-09-29 220942" src="https://github.com/user-attachments/assets/595082f3-eafb-4a22-a5c6-39ada42aa2cd" />
+<img width="678" height="507" alt="Screenshot 2025-09-29 222227" src="https://github.com/user-attachments/assets/956f4e31-e8ef-4035-abc9-ed57286b95e5" />
 
 <img width="769" height="534" alt="Screenshot 2025-09-29 221711" src="https://github.com/user-attachments/assets/b66c94a0-d8c4-49b8-ac6e-35fd8a33f083" />
 
