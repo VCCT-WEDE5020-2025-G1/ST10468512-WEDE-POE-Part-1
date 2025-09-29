@@ -206,9 +206,11 @@ Provided as-is for small business starter sites.
 https://github.com/VCCT-WEDE5020-2025-G1/ST10468512-WEDE-POE-Part-1
 
 ## References 
-https://www.w3schools.com/css/default.asp
+W3schools, 2025a. CSS Tutorial. [online] Available at: https://www.w3schools.com/css/default.asp [Accessed 29 September 2025].
 
-https://www.w3schools.com/html/default.asp
+W3schools, 2025b. HTML Styles - CSS. [online] Available at: https://www.w3schools.com/html/html_css.asp [Accessed 29 September 2025].
+
+W3schools, 2025c. HTML Tutorial. [online] Available at: https://www.w3schools.com/html/default.asp [Accessed 29 September 2025].
 
 https://www.arlingtontxseptic.com/drain-cleaning/
 
