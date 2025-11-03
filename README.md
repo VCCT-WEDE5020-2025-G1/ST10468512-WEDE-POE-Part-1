@@ -263,7 +263,10 @@ Home Page
 
 
 
+Services Page 
+<img width="1348" height="635" alt="Screenshot 2025-11-03 201124" src="https://github.com/user-attachments/assets/fc561614-bb50-483f-9b69-fa1a47b9f59f" />
 
+<img width="1065" height="589" alt="Screenshot 2025-11-03 201152" src="https://github.com/user-attachments/assets/ca7f12f4-0118-4a07-b7c6-b16268fec47d" />
 
 
 
