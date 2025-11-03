@@ -258,13 +258,13 @@ Tablet
 
 
 ## Updated Version 
-##Home Page 
+## Home Page 
 <img width="1348" height="632" alt="Screenshot 2025-11-03 201031" src="https://github.com/user-attachments/assets/544b4441-7deb-4059-9bcc-b4d850b7f6e9" />
 
 
 
 
-##Services Page 
+## Services Page 
 <img width="1348" height="635" alt="Screenshot 2025-11-03 201124" src="https://github.com/user-attachments/assets/fc561614-bb50-483f-9b69-fa1a47b9f59f" />
 
 <img width="1065" height="589" alt="Screenshot 2025-11-03 201152" src="https://github.com/user-attachments/assets/ca7f12f4-0118-4a07-b7c6-b16268fec47d" />
@@ -272,16 +272,22 @@ Tablet
 
 
 
-##About Page 
+## About Page 
 <img width="1233" height="632" alt="Screenshot 2025-11-03 201323" src="https://github.com/user-attachments/assets/b4215d8a-ea20-462c-8483-37b4a84fbda5" />
 
 
 
 
-##Contact Page 
+## Contact Page 
 <img width="1086" height="596" alt="Screenshot 2025-11-03 201346" src="https://github.com/user-attachments/assets/b52faa41-2b8d-4d62-8648-d14c4011ec7a" />
 
 <img width="741" height="480" alt="Screenshot 2025-11-03 201401" src="https://github.com/user-attachments/assets/47d97e76-2aff-4d39-8981-32a7a9523ea1" />
 
 
+
+
+## Enquiry Page 
+<img width="1056" height="624" alt="Screenshot 2025-11-03 201427" src="https://github.com/user-attachments/assets/8dc09f88-373b-4727-ac83-f1a7c9e7c898" />
+
+<img width="796" height="471" alt="Screenshot 2025-11-03 201509" src="https://github.com/user-attachments/assets/f0efc432-82c1-44ea-9efc-e6bd4c85f3fb" />
 
