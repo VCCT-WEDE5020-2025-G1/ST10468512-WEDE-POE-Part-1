@@ -203,3 +203,71 @@ Notes
 
 ## License
 Provided as-is for small business starter sites.
+
+## Link to Github
+https://github.com/VCCT-WEDE5020-2025-G1/ST10468512-WEDE-POE-Part-1
+
+## References 
+W3schools, 2025a. CSS Tutorial. [online] Available at: https://www.w3schools.com/css/default.asp [Accessed 29 September 2025].
+
+W3schools, 2025b. HTML Styles - CSS. [online] Available at: https://www.w3schools.com/html/html_css.asp [Accessed 29 September 2025].
+
+W3schools, 2025c. HTML Tutorial. [online] Available at: https://www.w3schools.com/html/default.asp [Accessed 29 September 2025].
+
+https://www.arlingtontxseptic.com/drain-cleaning/
+
+https://wallpapers.com/plumbing-background?p=2
+
+https://www.icareplumbing.com.au/wp-content/uploads/2020/02/image-7-most-common-plumbing-problems-and-how-to-fix-them.jpg
+
+##Screenshots 
+Desktop
+<img width="1346" height="603" alt="Screenshot 2025-09-29 211518" src="https://github.com/user-attachments/assets/62154220-8bfb-43cb-85d0-195160c37129" />
+
+<img width="1348" height="609" alt="Screenshot 2025-09-29 211541" src="https://github.com/user-attachments/assets/4298589e-6dd1-416c-ab5b-c94744756a2a" />
+
+<img width="1347" height="601" alt="Screenshot 2025-09-29 211555" src="https://github.com/user-attachments/assets/3f6ac052-30f0-4c67-9594-9d5266eea2c6" />
+
+<img width="1360" height="570" alt="Screenshot 2025-09-29 211608" src="https://github.com/user-attachments/assets/56e67c8d-59c4-44ab-b9c1-1a2b9610a84b" />
+
+
+Moblie 
+
+<img width="213" height="548" alt="Screenshot 2025-09-29 214649" src="https://github.com/user-attachments/assets/fa174814-b293-4ec6-9fd0-e0b5bc4234f3" />
+
+<img width="215" height="463" alt="Screenshot 2025-09-29 215011" src="https://github.com/user-attachments/assets/0498e6ce-7df7-4eca-b464-1e2ccde024cd" />
+
+<img width="211" height="463" alt="Screenshot 2025-09-29 215334" src="https://github.com/user-attachments/assets/a82347f3-5ff4-4b17-a35f-6f98a056e5c7" />
+
+<img width="213" height="466" alt="Screenshot 2025-09-29 215347" src="https://github.com/user-attachments/assets/b28955f2-b769-4536-9a13-e48b74e74dfe" />
+
+<img width="216" height="462" alt="Screenshot 2025-09-29 222415" src="https://github.com/user-attachments/assets/2d846391-0ba4-4ace-a10a-0b4701f2a38f" />
+
+
+
+Tablet
+
+<img width="679" height="513" alt="Screenshot 2025-09-29 222122" src="https://github.com/user-attachments/assets/efee44e0-223c-4b3c-8fda-b35b38e55fa8" />
+
+<img width="678" height="507" alt="Screenshot 2025-09-29 222227" src="https://github.com/user-attachments/assets/956f4e31-e8ef-4035-abc9-ed57286b95e5" />
+
+<img width="769" height="534" alt="Screenshot 2025-09-29 221711" src="https://github.com/user-attachments/assets/b66c94a0-d8c4-49b8-ac6e-35fd8a33f083" />
+
+<img width="766" height="529" alt="image" src="https://github.com/user-attachments/assets/ece5e4ba-a97b-4271-b7c0-1b39454d1f7c" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
