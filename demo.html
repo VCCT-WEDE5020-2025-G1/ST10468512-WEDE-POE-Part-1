@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Features Demo | Friendly Fix Plumbing</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      .demo-section {
+        margin: 4rem 0;
+        padding: 2rem;
+        background: var(--bg-alt);
+        border-radius: var(--radius-lg);
+      }
+      .demo-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      .demo-badge {
+        background: var(--brand);
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: var(--radius-md);
+        font-size: 0.875rem;
+        font-weight: 600;
+      }
+      .demo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+      .demo-item {
+        padding: 1rem;
+        background: white;
+        border-radius: var(--radius-md);
+        border: 2px solid var(--surface-hover);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html">Friendly Fix Plumbing</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        <nav class="site-nav" aria-label="Primary">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a class="active" href="demo.html">Demo</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container page">
+      <h1>🎨 Interactive Features Showcase</h1>
+      <p class="page-intro">This page demonstrates all the JavaScript enhancements implemented for the website. Test each feature below!</p>
+
+      <!-- Tabs Demo -->
+      <section class="demo-section">
+        <div class="demo-header">
+          <h2>Tabs Navigation</h2>
+          <span class="demo-badge">Interactive</span>
+        </div>
+        <p>Click tabs to switch content. Use keyboard arrows for navigation.</p>
+        
+        <div class="tabs-container">
+          <div class="tabs-header" role="tablist">
+            <button class="tab-button active" role="tab">Overview</button>
+            <button class="tab-button" role="tab">Features</button>
+            <button class="tab-button" role="tab">Benefits</button>
+          </div>
+          <div class="tab-panel active" role="tabpanel">
+            <div class="demo-item">
+              <h3>Overview</h3>
+              <p>This tab system allows users to navigate between related content sections without page reloads. Perfect for organizing services, product details, or information categories.</p>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel">
+            <div class="demo-item">
+              <h3>Features</h3>
+              <ul>
+                <li>Smooth transitions between panels</li>
+                <li>Keyboard navigation support</li>
+                <li>ARIA attributes for accessibility</li>
+                <li>Mobile-responsive design</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel">
+            <div class="demo-item">
+              <h3>Benefits</h3>
+              <ul>
+                <li>Reduces page clutter</li>
+                <li>Improves user experience</li>
+                <li>Better content organization</li>
+                <li>Faster navigation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Accordion Demo -->
+      <section class="demo-section">
+        <div class="demo-header">
+          <h2>Accordion Panels</h2>
+          <span class="demo-badge">Expandable</span>
+        </div>
+        <p>Click headers to expand/collapse content. Great for FAQs!</p>
+        
+        <div class="accordion">
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>What are accordion panels?</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              <p>Accordion panels are expandable/collapsible content sections that help organize information efficiently. They're perfect for FAQs, product details, and any content that benefits from progressive disclosure.</p>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>How do they improve UX?</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              <p>Accordions reduce visual clutter by hiding content until users need it. This makes pages easier to scan and helps users focus on relevant information without overwhelming them.</p>
+            </div>
+          </div>
+          
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>Are they mobile-friendly?</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              <p>Yes! Accordions are especially useful on mobile devices where screen space is limited. They allow users to access detailed content without excessive scrolling.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Search & Filter Demo -->
+      <section class="demo-section">
+        <div class="demo-header">
+          <h2>Search & Filter</h2>
+          <span class="demo-badge">Dynamic</span>
+        </div>
+        <p>Type to search or click filters to sort items in real-time.</p>
+        
+        <div class="search-filter-section">
+          <div class="search-container">
+            <input 
+              type="search" 
+              placeholder="Search items..." 
+              data-search
+              class="search-input"
+            />
+          </div>
+          
+          <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All Items</button>
+            <button class="filter-btn" data-filter="feature">Features</button>
+            <button class="filter-btn" data-filter="service">Services</button>
+            <button class="filter-btn" data-filter="tool">Tools</button>
+          </div>
+        </div>
+
+        <div class="demo-grid">
+          <div class="demo-item" data-searchable data-category="feature tool">
+            <h4>🎨 Interactive Tabs</h4>
+            <p>Switch between content panels smoothly</p>
+          </div>
+          <div class="demo-item" data-searchable data-category="feature">
+            <h4>📱 Responsive Design</h4>
+            <p>Works perfectly on all devices</p>
+          </div>
+          <div class="demo-item" data-searchable data-category="service tool">
+            <h4>🔍 Real-time Search</h4>
+            <p>Find content instantly as you type</p>
+          </div>
+          <div class="demo-item" data-searchable data-category="feature service">
+            <h4>🖼️ Lightbox Gallery</h4>
+            <p>View images in full-screen mode</p>
+          </div>
+          <div class="demo-item" data-searchable data-category="tool">
+            <h4>🗺️ Interactive Maps</h4>
+            <p>Location-based features with Leaflet</p>
+          </div>
+          <div class="demo-item" data-searchable data-category="feature">
+            <h4>💬 Modal Dialogs</h4>
+            <p>Display detailed content in popups</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modal Demo -->
+      <section class="demo-section">
+        <div class="demo-header">
+          <h2>Modal Dialogs</h2>
+          <span class="demo-badge">Overlay</span>
+        </div>
+        <p>Click button to open modal. Close with X, ESC key, or clicking outside.</p>
+        
+        <button class="btn" data-modal-target="#demo-modal">Open Demo Modal</button>
+        <button class="btn btn-secondary" data-modal-target="#demo-modal-2" style="margin-left: 1rem;">Open Info Modal</button>
+      </section>
+
+      <!-- Lightbox Demo -->
+      <section class="demo-section">
+        <div class="demo-header">
+          <h2>Lightbox Gallery</h2>
+          <span class="demo-badge">Images</span>
+        </div>
+        <p>Click any image to view in full-screen lightbox. Use arrows to navigate.</p>
+        
+        <div class="cards">
+          <article class="card" data-tilt>
+            <div class="card-media">
+              <img class="responsive-img" src="assets/img/leak.jpg" alt="Professional leak detection service" data-lightbox>
+            </div>
+            <h3>Leak Detection</h3>
+            <p>Click image for lightbox view</p>
+          </article>
+          
+          <article class="card" data-tilt>
+            <div class="card-media">
+              <img class="responsive-img" src="assets/img/drain.jpg" alt="Expert drain cleaning services" data-lightbox>
+            </div>
+            <h3>Drain Cleaning</h3>
+            <p>Click image for lightbox view</p>
+          </article>
+          
+          <article class="card" data-tilt>
+            <div class="card-media">
+              <img class="responsive-img" src="assets/img/heater.jpg" alt="Water heater installation" data-lightbox>
+            </div>
+            <h3>Water Heaters</h3>
+            <p>Click image for lightbox view</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Animations Demo -->
+      <section class="demo-section">
+        <div class="demo-header">
+          <h2>Animations & Effects</h2>
+          <span class="demo-badge">Visual</span>
+        </div>
+        <p>Scroll to see fade-in animations. Hover over cards for 3D tilt effect.</p>
+        
+        <div class="demo-grid">
+          <div class="demo-item fade-in-up" style="animation-delay: 0.1s;">
+            <h4>✨ Fade In Up</h4>
+            <p>Elements animate as they enter viewport</p>
+          </div>
+          <div class="demo-item fade-in-up" style="animation-delay: 0.2s;">
+            <h4>🎭 3D Tilt</h4>
+            <p>Cards tilt on hover for depth effect</p>
+          </div>
+          <div class="demo-item fade-in-up" style="animation-delay: 0.3s;">
+            <h4>🔢 Counter Animation</h4>
+            <p>Numbers count up: <span data-counter="1000">0</span>+</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Load More Demo -->
+      <section class="demo-section">
+        <div class="demo-header">
+          <h2>Dynamic Content Loading</h2>
+          <span class="demo-badge">AJAX</span>
+        </div>
+        <p>Click to simulate loading more content from a server.</p>
+        
+        <div class="load-more-section">
+          <button class="btn btn-secondary" data-load-more data-target=".demo-grid">Load More Items</button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Demo Modals -->
+    <div id="demo-modal" class="modal">
+      <div class="modal-content">
+        <button class="modal-close" data-modal-close>&times;</button>
+        <h2>🎉 Demo Modal</h2>
+        <p>This is a modal dialog! Modals are perfect for:</p>
+        <ul>
+          <li>Service details and pricing</li>
+          <li>Image galleries</li>
+          <li>Contact forms</li>
+          <li>Confirmations and alerts</li>
+          <li>Video content</li>
+        </ul>
+        <p>Try closing this modal by:</p>
+        <ul>
+          <li>Clicking the X button</li>
+          <li>Pressing ESC key</li>
+          <li>Clicking outside this box</li>
+        </ul>
+        <button class="btn" data-modal-close>Got It!</button>
+      </div>
+    </div>
+
+    <div id="demo-modal-2" class="modal">
+      <div class="modal-content">
+        <button class="modal-close" data-modal-close>&times;</button>
+        <h2>📋 Modal Features</h2>
+        <img src="assets/img/fixture.jpg" alt="Plumbing fixture" class="modal-image">
+        <h3>Key Benefits:</h3>
+        <ul>
+          <li><strong>Focus Management:</strong> Traps keyboard focus inside modal</li>
+          <li><strong>Accessibility:</strong> Full ARIA support for screen readers</li>
+          <li><strong>Responsive:</strong> Adapts to all screen sizes</li>
+          <li><strong>Smooth Animations:</strong> Slide-in effect on open</li>
+          <li><strong>Body Scroll Lock:</strong> Prevents scrolling behind modal</li>
+        </ul>
+        <a href="services.html" class="btn">View Services</a>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> Friendly Fix Plumbing</p>
+        <p><a href="tel:+11234567890">(123) 456-7890</a> · <a href="mailto:hello@friendlyfix.com">hello@friendlyfix.com</a></p>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

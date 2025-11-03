@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact | Friendly Fix Plumbing</title>
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <!-- Leaflet CSS for interactive maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   </head>
   <body>
     <header class="site-header">
@@ -24,15 +26,23 @@
 
     <main class="container page">
       <h1>Contact Us</h1>
-      <p>Call us, email us, or send a quick message below. We usually respond within the hour during business times.</p>
+      <p class="page-intro">Call us, email us, or send a quick message below. We usually respond within the hour during business times.</p>
+      
       <div class="contact-grid">
         <div>
           <h2>Quick details</h2>
           <p><strong>Phone:</strong> <a href="tel:+11234567890">(123) 456-7890</a></p>
           <p><strong>Email:</strong> <a href="mailto:hello@friendlyfix.com">hello@friendlyfix.com</a></p>
+          <p><strong>Address:</strong> 123 Main Street, New York, NY 10001</p>
           <p><strong>Hours:</strong> Mon–Sat 8am–6pm · 24/7 emergencies</p>
+          
+          <div class="social-links">
+            <h3>Connect With Us</h3>
+            <p>Follow us for tips, promotions, and updates!</p>
+          </div>
         </div>
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thanks! We\'ll be in touch shortly.'); this.reset();">
+        
+        <form class="contact-form">
           <label>
             Name
             <input type="text" name="name" required />
@@ -46,23 +56,43 @@
             <input type="tel" name="phone" />
           </label>
           <label>
+            Service Type
+            <select name="service">
+              <option value="">Select a service...</option>
+              <option value="leak">Leak Detection & Repair</option>
+              <option value="drain">Drain Cleaning</option>
+              <option value="heater">Water Heater</option>
+              <option value="fixture">Fixture Installation</option>
+              <option value="emergency">Emergency Service</option>
+              <option value="other">Other</option>
+            </select>
+          </label>
+          <label>
             Message
             <textarea name="message" rows="5" required></textarea>
           </label>
           <button type="submit" class="btn">Send Message</button>
         </form>
       </div>
+      
+      <!-- Interactive Map Section -->
+      <section class="map-section">
+        <h2>Find Us</h2>
+        <p>We serve the greater New York metropolitan area. Click the map for interactive features.</p>
+        <div id="map" class="interactive-map"></div>
+      </section>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>© <span id="year"></span> Friendly Fix Plumbing</p>
+        <p> 2023 Friendly Fix Plumbing</p>
         <p><a href="tel:+11234567890">(123) 456-7890</a> · <a href="mailto:hello@friendlyfix.com">hello@friendlyfix.com</a></p>
       </div>
     </footer>
 
+    <!-- Leaflet JS for interactive maps -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/map.js"></script>
   </body>
-  </html>
-
-
+</html>

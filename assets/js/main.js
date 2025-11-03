@@ -5,11 +5,15 @@
  * - Mobile navigation with accessibility features
  * - Smooth scrolling and animations
  * - Form handling with loading states
+ * - Interactive elements (tabs, accordions, modals)
+ * - Image gallery with lightbox
+ * - Search and filter functionality
+ * - Dynamic content loading
  * - Performance optimizations
  * - User experience enhancements
  * 
  * @author Friendly Fix Plumbing
- * @version 2.0.0
+ * @version 3.0.0
  */
 
 (function () {
@@ -321,6 +325,15 @@
     initScrollAnimations();    // Scroll-triggered animations
     initLazyLoading();         // Image lazy loading
     initKeyboardNavigation();  // Keyboard accessibility
+    
+    // Initialize new interactive features
+    initTabs();                // Tab navigation
+    initAccordions();          // Accordion panels
+    initModals();              // Modal dialogs
+    initLightbox();            // Image lightbox gallery
+    initSearch();              // Search and filter
+    initDynamicContent();      // Dynamic content loading
+    initAdvancedAnimations();  // Advanced animations
 
     // Add loaded class to body for CSS animations
     document.body.classList.add('loaded');
@@ -343,13 +356,529 @@
   // PUBLIC API
   // ==========================================================================
   
+  // ==========================================================================
+  // TABS FUNCTIONALITY
+  // ==========================================================================
+  
+  /**
+   * Initialize tab navigation
+   * Allows switching between different content panels
+   */
+  function initTabs() {
+    const tabContainers = document.querySelectorAll('.tabs-container');
+    
+    tabContainers.forEach(container => {
+      const tabButtons = container.querySelectorAll('.tab-button');
+      const tabPanels = container.querySelectorAll('.tab-panel');
+      
+      tabButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+          // Remove active state from all buttons and panels
+          tabButtons.forEach(btn => {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-selected', 'false');
+          });
+          tabPanels.forEach(panel => {
+            panel.classList.remove('active');
+            panel.setAttribute('aria-hidden', 'true');
+          });
+          
+          // Add active state to clicked button and corresponding panel
+          button.classList.add('active');
+          button.setAttribute('aria-selected', 'true');
+          tabPanels[index].classList.add('active');
+          tabPanels[index].setAttribute('aria-hidden', 'false');
+          
+          // Animate panel entrance
+          tabPanels[index].style.animation = 'fadeInUp 0.3s ease-out';
+        });
+        
+        // Keyboard navigation for tabs
+        button.addEventListener('keydown', (e) => {
+          let newIndex = index;
+          
+          if (e.key === 'ArrowRight') {
+            newIndex = (index + 1) % tabButtons.length;
+          } else if (e.key === 'ArrowLeft') {
+            newIndex = (index - 1 + tabButtons.length) % tabButtons.length;
+          } else if (e.key === 'Home') {
+            newIndex = 0;
+          } else if (e.key === 'End') {
+            newIndex = tabButtons.length - 1;
+          } else {
+            return;
+          }
+          
+          e.preventDefault();
+          tabButtons[newIndex].click();
+          tabButtons[newIndex].focus();
+        });
+      });
+    });
+  }
+
+  // ==========================================================================
+  // ACCORDION FUNCTIONALITY
+  // ==========================================================================
+  
+  /**
+   * Initialize accordion panels
+   * Expandable/collapsible content sections
+   */
+  function initAccordions() {
+    const accordions = document.querySelectorAll('.accordion');
+    
+    accordions.forEach(accordion => {
+      const items = accordion.querySelectorAll('.accordion-item');
+      
+      items.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        const content = item.querySelector('.accordion-content');
+        const icon = item.querySelector('.accordion-icon');
+        
+        if (!header || !content) return;
+        
+        header.addEventListener('click', () => {
+          const isOpen = item.classList.contains('active');
+          
+          // Close all other items if not multi-open
+          if (!accordion.hasAttribute('data-multi-open')) {
+            items.forEach(otherItem => {
+              if (otherItem !== item) {
+                otherItem.classList.remove('active');
+                const otherContent = otherItem.querySelector('.accordion-content');
+                const otherIcon = otherItem.querySelector('.accordion-icon');
+                if (otherContent) otherContent.style.maxHeight = null;
+                if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+              }
+            });
+          }
+          
+          // Toggle current item
+          item.classList.toggle('active');
+          
+          if (isOpen) {
+            content.style.maxHeight = null;
+            if (icon) icon.style.transform = 'rotate(0deg)';
+          } else {
+            content.style.maxHeight = content.scrollHeight + 'px';
+            if (icon) icon.style.transform = 'rotate(180deg)';
+          }
+        });
+      });
+    });
+  }
+
+  // ==========================================================================
+  // MODAL FUNCTIONALITY
+  // ==========================================================================
+  
+  /**
+   * Initialize modal dialogs
+   * Popup windows for quotes, details, etc.
+   */
+  function initModals() {
+    const modalTriggers = document.querySelectorAll('[data-modal-target]');
+    const modalCloses = document.querySelectorAll('[data-modal-close]');
+    const modals = document.querySelectorAll('.modal');
+    
+    // Open modal
+    modalTriggers.forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const modalId = trigger.getAttribute('data-modal-target');
+        const modal = document.querySelector(modalId);
+        
+        if (modal) {
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden'; // Prevent body scroll
+          
+          // Focus trap
+          const focusableElements = modal.querySelectorAll(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          );
+          if (focusableElements.length > 0) {
+            focusableElements[0].focus();
+          }
+        }
+      });
+    });
+    
+    // Close modal
+    modalCloses.forEach(closeBtn => {
+      closeBtn.addEventListener('click', () => {
+        const modal = closeBtn.closest('.modal');
+        closeModal(modal);
+      });
+    });
+    
+    // Close on backdrop click
+    modals.forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal(modal);
+        }
+      });
+    });
+    
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const activeModal = document.querySelector('.modal.active');
+        if (activeModal) {
+          closeModal(activeModal);
+        }
+      }
+    });
+  }
+  
+  function closeModal(modal) {
+    if (modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = ''; // Restore body scroll
+    }
+  }
+
+  // ==========================================================================
+  // LIGHTBOX GALLERY
+  // ==========================================================================
+  
+  /**
+   * Initialize lightbox for image galleries
+   * Click to view images in fullscreen
+   */
+  function initLightbox() {
+    // Create lightbox structure if it doesn't exist
+    if (!document.querySelector('.lightbox')) {
+      const lightbox = document.createElement('div');
+      lightbox.className = 'lightbox';
+      lightbox.innerHTML = `
+        <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+        <button class="lightbox-prev" aria-label="Previous image">&larr;</button>
+        <button class="lightbox-next" aria-label="Next image">&rarr;</button>
+        <div class="lightbox-content">
+          <img src="" alt="" class="lightbox-image">
+          <div class="lightbox-caption"></div>
+        </div>
+      `;
+      document.body.appendChild(lightbox);
+    }
+    
+    const lightbox = document.querySelector('.lightbox');
+    const lightboxImg = lightbox.querySelector('.lightbox-image');
+    const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+    const prevBtn = lightbox.querySelector('.lightbox-prev');
+    const nextBtn = lightbox.querySelector('.lightbox-next');
+    
+    // Get all gallery images
+    const galleryImages = document.querySelectorAll('[data-lightbox]');
+    let currentIndex = 0;
+    
+    // Open lightbox
+    galleryImages.forEach((img, index) => {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', () => {
+        currentIndex = index;
+        showLightboxImage();
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    
+    // Show image in lightbox
+    function showLightboxImage() {
+      if (galleryImages[currentIndex]) {
+        const img = galleryImages[currentIndex];
+        lightboxImg.src = img.src || img.dataset.src;
+        lightboxImg.alt = img.alt || '';
+        lightboxCaption.textContent = img.alt || '';
+        
+        // Update navigation button states
+        prevBtn.style.display = currentIndex > 0 ? 'block' : 'none';
+        nextBtn.style.display = currentIndex < galleryImages.length - 1 ? 'block' : 'none';
+      }
+    }
+    
+    // Close lightbox
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    
+    // Navigation
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        showLightboxImage();
+      }
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < galleryImages.length - 1) {
+        currentIndex++;
+        showLightboxImage();
+      }
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft' && currentIndex > 0) {
+        currentIndex--;
+        showLightboxImage();
+      }
+      if (e.key === 'ArrowRight' && currentIndex < galleryImages.length - 1) {
+        currentIndex++;
+        showLightboxImage();
+      }
+    });
+  }
+
+  // ==========================================================================
+  // SEARCH & FILTER FUNCTIONALITY
+  // ==========================================================================
+  
+  /**
+   * Initialize search and filter for content
+   * Filter services, products, or events dynamically
+   */
+  function initSearch() {
+    const searchInput = document.querySelector('[data-search]');
+    if (!searchInput) return;
+    
+    const searchableItems = document.querySelectorAll('[data-searchable]');
+    const filterButtons = document.querySelectorAll('[data-filter]');
+    const noResultsMessage = document.querySelector('.no-results') || createNoResultsMessage();
+    
+    // Search functionality
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      let visibleCount = 0;
+      
+      searchableItems.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        const matchesSearch = text.includes(query);
+        const matchesFilter = checkFilter(item);
+        
+        if (matchesSearch && matchesFilter) {
+          item.style.display = '';
+          item.style.animation = 'fadeInUp 0.3s ease-out';
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      
+      // Show/hide no results message
+      noResultsMessage.style.display = visibleCount === 0 ? 'block' : 'none';
+    });
+    
+    // Filter functionality
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Update active filter button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        const filter = button.getAttribute('data-filter');
+        let visibleCount = 0;
+        
+        searchableItems.forEach(item => {
+          const categories = item.getAttribute('data-category');
+          const matchesFilter = filter === 'all' || categories.includes(filter);
+          const matchesSearch = checkSearch(item, searchInput.value);
+          
+          if (matchesFilter && matchesSearch) {
+            item.style.display = '';
+            item.style.animation = 'fadeInUp 0.3s ease-out';
+            visibleCount++;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        
+        noResultsMessage.style.display = visibleCount === 0 ? 'block' : 'none';
+      });
+    });
+    
+    function checkFilter(item) {
+      const activeFilter = document.querySelector('[data-filter].active');
+      if (!activeFilter) return true;
+      
+      const filter = activeFilter.getAttribute('data-filter');
+      const categories = item.getAttribute('data-category') || '';
+      return filter === 'all' || categories.includes(filter);
+    }
+    
+    function checkSearch(item, query) {
+      if (!query) return true;
+      const text = item.textContent.toLowerCase();
+      return text.includes(query.toLowerCase());
+    }
+    
+    function createNoResultsMessage() {
+      const message = document.createElement('div');
+      message.className = 'no-results';
+      message.style.display = 'none';
+      message.innerHTML = '<p>No results found. Try a different search term.</p>';
+      const searchContainer = searchInput.closest('.search-container') || document.querySelector('.cards');
+      if (searchContainer) {
+        searchContainer.parentNode.insertBefore(message, searchContainer.nextSibling);
+      }
+      return message;
+    }
+  }
+
+  // ==========================================================================
+  // DYNAMIC CONTENT LOADING
+  // ==========================================================================
+  
+  /**
+   * Load content dynamically with fade-in animation
+   * Simulates loading posts, products, or listings
+   */
+  function initDynamicContent() {
+    const loadMoreButtons = document.querySelectorAll('[data-load-more]');
+    
+    loadMoreButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const container = document.querySelector(this.getAttribute('data-target'));
+        if (!container) return;
+        
+        // Simulate loading state
+        this.classList.add('loading');
+        this.disabled = true;
+        const originalText = this.textContent;
+        this.textContent = 'Loading...';
+        
+        // Simulate API call delay
+        setTimeout(() => {
+          // Example: Clone existing items to simulate new content
+          const items = container.querySelectorAll('[data-searchable]');
+          const newItems = [];
+          
+          for (let i = 0; i < Math.min(3, items.length); i++) {
+            const clone = items[i].cloneNode(true);
+            clone.style.opacity = '0';
+            container.appendChild(clone);
+            newItems.push(clone);
+          }
+          
+          // Animate new items in
+          newItems.forEach((item, index) => {
+            setTimeout(() => {
+              item.style.transition = 'opacity 0.5s ease-out';
+              item.style.opacity = '1';
+            }, index * 100);
+          });
+          
+          // Reset button
+          this.classList.remove('loading');
+          this.disabled = false;
+          this.textContent = originalText;
+        }, 1000);
+      });
+    });
+  }
+
+  // ==========================================================================
+  // ADVANCED ANIMATIONS
+  // ==========================================================================
+  
+  /**
+   * Initialize advanced CSS and JavaScript animations
+   * Parallax effects, hover animations, etc.
+   */
+  function initAdvancedAnimations() {
+    // Parallax scrolling effect
+    const parallaxElements = document.querySelectorAll('[data-parallax]');
+    if (parallaxElements.length > 0) {
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        parallaxElements.forEach(element => {
+          const speed = element.getAttribute('data-parallax') || 0.5;
+          element.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+      });
+    }
+    
+    // Hover tilt effect for cards
+    const tiltCards = document.querySelectorAll('[data-tilt]');
+    tiltCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+      });
+    });
+    
+    // Counter animation
+    const counters = document.querySelectorAll('[data-counter]');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = parseInt(counter.getAttribute('data-counter'));
+          animateCounter(counter, 0, target, 2000);
+          counterObserver.unobserve(counter);
+        }
+      });
+    });
+    
+    counters.forEach(counter => counterObserver.observe(counter));
+  }
+  
+  function animateCounter(element, start, end, duration) {
+    const range = end - start;
+    const increment = range / (duration / 16);
+    let current = start;
+    
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= end) {
+        element.textContent = end;
+        clearInterval(timer);
+      } else {
+        element.textContent = Math.floor(current);
+      }
+    }, 16);
+  }
+
   /**
    * Expose public functions for external use
    * Allows other scripts to interact with the module
    */
   window.FriendlyFix = {
     showNotification,        // Show toast notifications
-    initScrollAnimations     // Re-initialize scroll animations
+    initScrollAnimations,    // Re-initialize scroll animations
+    closeModal,              // Close modal programmatically
+    initTabs,                // Initialize tabs
+    initAccordions,          // Initialize accordions
+    initModals,              // Initialize modals
+    initLightbox,            // Initialize lightbox
+    initSearch,              // Initialize search
+    initDynamicContent,      // Initialize dynamic content
+    initAdvancedAnimations   // Initialize advanced animations
   };
 
 })();

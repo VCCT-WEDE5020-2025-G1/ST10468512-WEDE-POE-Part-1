@@ -16,6 +16,7 @@ Format is inspired by Keep a Changelog, and the project uses Conventional Commit
 - Image lazy loading support for images using `data-src`.
 - Performance logging scaffold in `index.html`.
 - SEO and social meta tags (Open Graph & Twitter Cards) in `index.html`.
+ - Services page cards now use `<picture>` with `srcset`/`sizes` for responsive imagery.
 
 ### Changed
 - Upgraded design system with CSS variables for colors, spacing, typography, radius, shadows, transitions.

@@ -110,15 +110,17 @@ Defined via CSS custom properties in `styles.css`:
 - Place images in `assets/img/`
 - For lazy loading, set `src` to a tiny placeholder (or omit) and set the real path on `data-src`. The script will populate `src` when the image enters the viewport.
 
-### Responsive images (example)
-In `services.html`, cards use `<picture>` with `srcset`/`sizes` to deliver appropriate resolutions:
+### Responsive images (current implementation)
+In `services.html`, each service card uses a `<picture>` element with `srcset`/`sizes`. At the moment, we reference the same source image at different width descriptors; you can swap in actual multiple resolutions later without changing markup:
 
 ```html
 <picture>
-  <source srcset="assets/img/leak-640.jpg 640w, assets/img/leak-960.jpg 960w" sizes="(max-width: 768px) 100vw, 33vw">
-  <img class="responsive-img" src="assets/img/leak-640.jpg" alt="Leak detection equipment in use">
-  </picture>
+  <source srcset="assets/img/leak.jpg 640w, assets/img/leak.jpg 960w" sizes="(max-width: 768px) 100vw, 33vw">
+  <img class="responsive-img" src="assets/img/leak.jpg" alt="Leak detection equipment in use">
+</picture>
 ```
+
+Note: Replace the duplicate `leak.jpg` entries with real variant filenames (e.g., `leak-640.jpg`, `leak-960.jpg`) as you add optimized assets.
 
 ---
 
