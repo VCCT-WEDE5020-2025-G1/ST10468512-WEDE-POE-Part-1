@@ -257,6 +257,9 @@ Tablet
 
 
 
+## Updated Version 
+Home Page 
+<img width="1348" height="632" alt="Screenshot 2025-11-03 201031" src="https://github.com/user-attachments/assets/544b4441-7deb-4059-9bcc-b4d850b7f6e9" />
 
 
 
