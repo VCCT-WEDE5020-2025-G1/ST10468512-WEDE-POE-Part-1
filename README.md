@@ -214,10 +214,13 @@ W3schools, 2025b. HTML Styles - CSS. [online] Available at: https://www.w3school
 
 W3schools, 2025c. HTML Tutorial. [online] Available at: https://www.w3schools.com/html/default.asp [Accessed 29 September 2025].
 
-Embed Google Map, 2025.Embed Google Map. [online] Available at: https://embed-googlemap.com/ [Accessed 31 October 2025].
+Embed Google Map, 2025.Embed Google Map. [online] Available at: https://embed-googlemap.com/ [Accessed 2 November 2025].
 
-w3schools, 2025.How TO - Filter/Search List. [online] Available at: https://www.w3schools.com/howto/howto_js_filter_lists.asp [Accessed 1 November 2025].
-https://www.arlingtontxseptic.com/drain-cleaning/
+w3schools, 2025.How TO - Filter/Search List. [online] Available at: https://www.w3schools.com/howto/howto_js_filter_lists.asp [Accessed 31 October 2025].
+
+w3schools, 2025. How TO - Tabs. [online] Available at: https://www.w3schools.com/howto/howto_js_tabs.asp [Accessed 1 November 2025].
+
+w3schools, 2025. JavaScript HTML DOM. [online] Available at: https://www.w3schools.com/js/js_htmldom.asp [Accessed 2 November 2025].
 
 https://wallpapers.com/plumbing-background?p=2
 
